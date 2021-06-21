@@ -2,7 +2,6 @@ import os.path
 from flask import Flask, request #
 import os
 import pandas as pd
-import main
 
 
 app = Flask(__name__)
@@ -20,8 +19,7 @@ def get():
 
     scrap_formatted = []
     for e in scrap:
-        #print(e)
-        scrap_formatted.append("<tr><th><a href=\"{link}\">{title}</a></th><th>Valor do Anuncio: R${preco}</th><th>Valor da Fipe: R${fipe}</th><th>              {score}% Abaixo da Tabela Fipe</th></tr>".format(title=e[1], link=e[0], preco=e[2], fipe=e[3], score=e[4]))
+        scrap_formatted.append("<tr><th><a href=\"{link}\">{title}</a></th><th>Valor do Anuncio: R${preco}</th><th>Valor da Fipe: R${fipe}</th><th>              {rate}% Abaixo da Tabela Fipe</th></tr>".format(title=e[1], link=e[0], preco=e[2], fipe=e[3], rate=e[4]))
   
     return '\n'.join(scrap_formatted) #
 

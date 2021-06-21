@@ -22,7 +22,7 @@ def search_links():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless") #2
     chrome_options.add_argument("--no-sandbox") #2
-    driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome(executable_path='chromedriver', options=chrome_options)
     
     links = []
     for pagina in tqdm(range(1)):
@@ -152,9 +152,9 @@ def search_data(links):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless") #2
     chrome_options.add_argument("--no-sandbox") #2
-    driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', options=chrome_options)
+    driver = webdriver.Chrome(executable_path='chromedriver', options=chrome_options)
 
-    for u in tqdm(links[:3]):
+    for u in tqdm(links[:10]):
     #print(c)
         try:
             response = driver.get(url=u)
@@ -362,7 +362,7 @@ def rate(df):
     return df
 
 
-def main():
+while True:
     links = search_links()
     links = search_links()
     df = search_data(links)
